@@ -141,11 +141,11 @@ def paginate(context, window=DEFAULT_WINDOW, hashtag=''):
             records['last'] = paginator.count
         # First and last are simply the first *n* pages and the last *n* pages,
         # where *n* is the current window size.
-        first = set(page_range[:window])
-        last = set(page_range[-window:])
+        first = set(page_range[:1])
+        last = set(page_range[-1:])
         # Now we look around our current page, making sure that we don't wrap
         # around.
-        current_start = page_obj.number-1-window
+        current_start = page_obj.number-window
         if current_start < 0:
             current_start = 0
         current_end = page_obj.number-1+window
